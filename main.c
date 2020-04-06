@@ -19,7 +19,15 @@ int main() {
     printf("Should return 0: %d\n",sumsTo(array,n,k,v));
 
     int array2[] = {};
+    printf("Should return 0: %d\n",sumsTo(array2,n,k,v));
+
+
+    k=0;
     printf("Should return 0: %d\n",sumsTo(array,n,k,v));
+
+    v=0;
+    printf("Should return 1: %d\n",sumsTo(array,n,k,v));
+
     return 0;
 }
 
