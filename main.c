@@ -1,3 +1,10 @@
+/**
+ * Quiz 2
+ * Kerry Tu
+ * kt25566
+ * 4/6/2020
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
