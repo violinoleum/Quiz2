@@ -6,8 +6,6 @@
  */
 
 #include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
 
 int sumsTo(int x[], int n, int k, int v);
 
@@ -38,17 +36,23 @@ int main() {
     return 0;
 }
 
-int sumsTo(int x[], int n, int k, int v){
-    if(v==0 && k==0)
+int sumsTo(int array[], int size, int nums, int total){
+    if(nums==0 && total==0) //if finished
         return 1;
-    if(v!=0 && k==0)
+    if(size==0 || (nums==0 && total>0)) //if no more to add and no sum found
         return 0;
-    if(n==0)
-        return 0;
-    int num1 = 0;
-    if(v>=x[0])
-        num1 = sumsTo(x+1,n-1,k-1,v-x[0]);
-    int num2 = sumsTo(x+1,n-1,k,v);
-    return num1+num2>0;
 
+    int num = array[0];
+    array++;
+    size--;
+    int keepNum = sumsTo(array,size,nums,total); //don't use num in total
+    int addNum; //use num in total
+    if(total>=num)
+        addNum = sumsTo(array,size,nums-1,total-num);
+    else
+        addNum = 0;
+
+    if(addNum==1 || keepNum==1)
+        return 1;
+    return 0;
 }
